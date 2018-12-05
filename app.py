@@ -37,13 +37,18 @@ print(unsolved)
 print(solved)
 
 while (True):
-    afficher_taquin(l_case)
-    trouve_num(l_case)
-    numero = int(input(" Entrez le numero de la piece a bouger de 1 a 8 : "))
+    display(unsolved)
+    solutions = find_solutions(unsolved)
+    print("Liste des solutions disponibles : ", solutions)
+    numero = int(input("Entrez une des solutions disponibles : "))
 
     if check_statment(numero, solutions):
         case_zero = unsolved.index(0)
         case_numero = unsolved.index(numero)
         switch(case_zero, case_numero, unsolved)
         print("La case a bien été déplacée.")
+        input("Press any key to continue ...")
+    else:
+        print("Saisie incorrecte")
+        input("Press any key to continue ...")
 

@@ -15,55 +15,23 @@ __status__ = "In product"
 from math import sqrt
 
 
-def find_case(l_case):
+def find_solutions(l_case):
+    
+    case_zero = l_case.index(0)
+    list_size = len(l_case)
+    line_size = int(sqrt(len(l_case)))
+    list_num = []
 
-    found = []
-    index_zero = l_case.index(0)
-    len_case = int(sqrt(len(l_case)))
+    if 0 <= (case_zero - 1) <= list_size and case_zero % line_size:
+        list_num.append(l_case[case_zero - 1])
+    if 0 <= (case_zero + 1) <= list_size and case_zero % line_size != line_size - 1:
+        list_num.append(l_case[case_zero + 1])
+    if 0 <= (case_zero - line_size) <= list_size and case_zero >= line_size:
+        list_num.append(l_case[case_zero - line_size])
+    if 0 <= (case_zero + line_size) <= list_size and case_zero <= list_size:
+        list_num.append(l_case[case_zero + line_size])
 
-    if index_zero == 0:
-        found.append(l_case[(index_zero) + 1])
-        found.append(l_case[(index_zero) + (len_case)])
-
-    if index_zero == 1:
-        found.append(l_case[(index_zero) - 1])
-        found.append(l_case[(index_zero) + 1])
-        found.append(l_case[(index_zero) + (len_case)])
-
-    if index_zero == 2:
-        found.append(l_case[(index_zero) - 1])
-        found.append(l_case[(index_zero) + (len_case)])
-
-    if index_zero == 3:
-        found.append(l_case[(index_zero) - (len_case)])
-        found.append(l_case[(index_zero) + 1])
-        found.append(l_case[(index_zero) + (len_case)])
-
-    if index_zero == 4:
-        found.append(l_case[(index_zero) - (len_case)])
-        found.append(l_case[(index_zero) - 1])
-        found.append(l_case[(index_zero) + (len_case)])
-        found.append(l_case[(index_zero) + 1])
-
-    if index_zero == 5:
-        found.append(l_case[(index_zero) - (len_case)])
-        found.append(l_case[(index_zero) - 1])
-        found.append(l_case[(index_zero) + (len_case)])
-
-    if index_zero == 6:
-        found.append(l_case[(index_zero) - (len_case)])
-        found.append(l_case[(index_zero) + 1])
-
-    if index_zero == 7:
-        found.append(l_case[(index_zero) - (len_case)])
-        found.append(l_case[(index_zero) - 1])
-        found.append(l_case[(index_zero) + 1])
-
-    if index_zero == 8:
-        found.append(l_case[(index_zero) - (len_case)])
-        found.append(l_case[(index_zero) - 1])
-
-    return found
+    return list_num
 
 
 def check_statment(case, list):

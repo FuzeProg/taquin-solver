@@ -17,7 +17,7 @@ __status__ = "In product"
 from math import sqrt
 
 
-def afficher_taquin(l_case):
+def display(l_case):
     print("   --- --- ---")
     print("  |", l_case[0], "|", l_case[1], "|", l_case[2], "|")
     print("   --- --- ---")
@@ -28,8 +28,7 @@ def afficher_taquin(l_case):
     print(" ")
 
 
-def echanger_cases(case1, case2, l_case):
-    if (case1 == 0 and case2 == 1) or (case1 == 1 and case2 == 0):
+def switch(case_zero, case_numero, l_case):
 
     # echanges horizontaux
     if (case_zero == 0 and case_numero == 1) or (case_zero == 1 and case_numero == 0):
@@ -80,21 +79,3 @@ def echanger_cases(case1, case2, l_case):
     elif (case_zero == 5 and case_numero == 8) or (case_zero == 8 and case_numero == 5):
 
         l_case[5], l_case[8] = l_case[8], l_case[5]
-
-
-def trouve_num(l_case):
-    case_zero = l_case.index(0)
-    taille_list = len(l_case)
-    taille_ligne = int(sqrt(len(l_case)))
-    list_num = []
-        
-    if 0 <= (case_zero-1) <= taille_list and case_zero % taille_ligne:
-        list_num.append(l_case[case_zero - 1])
-    if 0 <= (case_zero+1) <= taille_list and case_zero % taille_ligne != taille_ligne-1:
-        list_num.append(l_case[case_zero + 1])
-    if 0 <= (case_zero-taille_ligne) <= taille_list and case_zero >= taille_ligne:
-        list_num.append(l_case[case_zero - taille_ligne])
-    if 0 <= (case_zero+taille_ligne) <= taille_list and case_zero <= taille_list:
-        list_num.append(l_case[case_zero + taille_ligne])
-
-    print(list_num)
