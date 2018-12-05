@@ -15,29 +15,35 @@ __email__ = ["anthony.marechal@etu.uphf.fr", "ombeline.mozdzierz@etu.uphf.fr"]
 __status__ = "In product"
 
 from taquin import *
+from solver import *
 import random
 
 
-
-l_case = []
-l_found = []
+size = 9
+unsolved = []
+solutions = []
+solved = []
 i = 0
 
-while i < 9:
-    chiffre = random.randrange(0, 9)
+while i < size:
+    chiffre = random.randrange(0, size)
 
-    if chiffre not in l_case:
-        l_case.append(chiffre)
-        i += 1
-print(l_case)
+    if chiffre not in unsolved:
+        unsolved.append(chiffre)
+        solved.append(i)
+        i = i+1
+
+print(unsolved)
+print(solved)
+
 while (True):
     afficher_taquin(l_case)
     trouve_num(l_case)
     numero = int(input(" Entrez le numero de la piece a bouger de 1 a 8 : "))
 
-    if check_statment(numero, l_found):
-        case_zero = l_case.index(0)
-        case_numero = l_case.index(numero)
-        switch(case_zero, case_numero, l_case)
+    if check_statment(numero, solutions):
+        case_zero = unsolved.index(0)
+        case_numero = unsolved.index(numero)
+        switch(case_zero, case_numero, unsolved)
         print("La case a bien été déplacée.")
 
