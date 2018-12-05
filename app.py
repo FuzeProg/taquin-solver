@@ -31,9 +31,11 @@ while i < 9:
 
 while (True):
     afficher_taquin(l_case)
+    trouve_num(l_case)
     numero = int(input(" Entrez le numero de la piece a bouger de 1 a 8 : "))
 
     if 1 <= numero and numero <= 8:
         case_zero = l_case.index(0)
         case_numero = l_case.index(numero)
         echanger_cases(case_zero, case_numero, l_case)
+
