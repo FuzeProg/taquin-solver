@@ -20,6 +20,7 @@ import random
 
 
 l_case = []
+l_found = []
 i = 0
 
 while i < 9:
@@ -28,12 +29,18 @@ while i < 9:
     if chiffre not in l_case:
         l_case.append(chiffre)
         i += 1
-
+print(l_case)
 while (True):
-    afficher_taquin(l_case)
-    numero = int(input(" Entrez le numero de la piece a bouger de 1 a 8 : "))
+    display(l_case)
+    l_found = find_case(l_case)
+    print("Entrez le numéro voulu :", l_found)
+    numero = int(input())
 
-    if 1 <= numero and numero <= 8:
+    if check_statment(numero, l_found):
         case_zero = l_case.index(0)
         case_numero = l_case.index(numero)
-        echanger_cases(case_zero, case_numero, l_case)
+        switch(case_zero, case_numero, l_case)
+        print("La case a bien été déplacée.")
+
+    else:
+        print("Saisie invalide.")
