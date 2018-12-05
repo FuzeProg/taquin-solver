@@ -31,49 +31,53 @@ def afficher_taquin(l_case):
 def echanger_cases(case1, case2, l_case):
     if (case1 == 0 and case2 == 1) or (case1 == 1 and case2 == 0):
 
+    # echanges horizontaux
+    if (case_zero == 0 and case_numero == 1) or (case_zero == 1 and case_numero == 0):
+
         l_case[0], l_case[1] = l_case[1], l_case[0]
 
-    elif (case1 == 1 and case2 == 2) or (case1 == 2 and case2 == 1):
+    elif (case_zero == 1 and case_numero == 2) or (case_zero == 2 and case_numero == 1):
 
         l_case[1], l_case[2] = l_case[2], l_case[1]
 
-    elif (case1 == 3 and case2 == 4) or (case1 == 4 and case2 == 3):
+    elif (case_zero == 3 and case_numero == 4) or (case_zero == 4 and case_numero == 3):
 
         l_case[3], l_case[4] = l_case[4], l_case[3]
 
-    elif (case1 == 4 and case2 == 5) or (case1 == 5 and case2 == 4):
+    elif (case_zero == 4 and case_numero == 5) or (case_zero == 5 and case_numero == 4):
 
         l_case[4], l_case[5] = l_case[5], l_case[4]
 
-    elif (case1 == 6 and case2 == 7) or (case1 == 7 and case2 == 6):
+    elif (case_zero == 6 and case_numero == 7) or (case_zero == 7 and case_numero == 6):
 
         l_case[6], l_case[7] = l_case[7], l_case[6]
 
-    elif (case1 == 7 and case2 == 8) or (case1 == 8 and case2 == 7):
+    elif (case_zero == 7 and case_numero == 8) or (case_zero == 8 and case_numero == 7):
 
         l_case[7], l_case[8] = l_case[8], l_case[7]
 
-    elif (case1 == 0 and case2 == 3) or (case1 == 3 and case2 == 0):
+    # echanges verticaux
+    elif (case_zero == 0 and case_numero == 3) or (case_zero == 3 and case_numero == 0):
 
         l_case[0], l_case[3] = l_case[3], l_case[0]
 
-    elif (case1 == 3 and case2 == 6) or (case1 == 6 and case2 == 3):
+    elif (case_zero == 3 and case_numero == 6) or (case_zero == 6 and case_numero == 3):
 
         l_case[3], l_case[6] = l_case[6], l_case[3]
 
-    elif (case1 == 1 and case2 == 4) or (case1 == 4 and case2 == 1):
+    elif (case_zero == 1 and case_numero == 4) or (case_zero == 4 and case_numero == 1):
 
         l_case[1], l_case[4] = l_case[4], l_case[1]
 
-    elif (case1 == 4 and case2 == 7) or (case1 == 7 and case2 == 4):
+    elif (case_zero == 4 and case_numero == 7) or (case_zero == 7 and case_numero == 4):
 
         l_case[4], l_case[7] = l_case[7], l_case[4]
 
-    elif (case1 == 2 and case2 == 5) or (case1 == 5 and case2 == 2):
+    elif (case_zero == 2 and case_numero == 5) or (case_zero == 5 and case_numero == 2):
 
         l_case[2], l_case[5] = l_case[5], l_case[2]
 
-    elif (case1 == 5 and case2 == 8) or (case1 == 8 and case2 == 5):
+    elif (case_zero == 5 and case_numero == 8) or (case_zero == 8 and case_numero == 5):
 
         l_case[5], l_case[8] = l_case[8], l_case[5]
 
