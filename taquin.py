@@ -19,13 +19,14 @@ from math import sqrt
 
 def display(l_case):
     print("   --- --- ---")
-    print("  |", l_case[0], "|", l_case[1], "|", l_case[2], "|")
-    print("   --- --- ---")
-    print("  |", l_case[3], "|", l_case[4], "|", l_case[5], "|")
-    print("   --- --- ---")
-    print("  |", l_case[6], "|", l_case[7], "|", l_case[8], "|")
-    print("   --- --- ---")
-    print(" ")
+    for i in range(2):
+        print("  |", l_case[i], "|", l_case[i], "|", l_case[i], "|")
+        print("   --- --- ---")
+        print("  |", l_case[3], "|", l_case[4], "|", l_case[5], "|")
+        print("   --- --- ---")
+        print("  |", l_case[6], "|", l_case[7], "|", l_case[8], "|")
+        print("   --- --- ---")
+        print(" ")
 
 
 def switch(case_zero, case_numero, l_case):
