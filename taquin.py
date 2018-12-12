@@ -43,6 +43,7 @@ class Taquin:
         return self.taquin.index(index)
 
     def __getitem__(self, item):
+        print(item)
         return self.taquin[item]
 
     '''

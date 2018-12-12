@@ -13,8 +13,6 @@ __email__ = ["anthony.marechal@etu.uphf.fr", "ombeline.mozdzierz@etu.uphf.fr"]
 __status__ = "In product"
 
 from math import sqrt
-from taquin import Taquin
-
 
 class Solver:
 
@@ -41,7 +39,7 @@ class Solver:
             self.solutions.append(self.initialState[emptyCase + 1])
         if 0 <= (emptyCase - l_size) <= self.size and emptyCase >= l_size:
             self.solutions.append(self.initialState[emptyCase - l_size])
-        if 0 <= (emptyCase + l_size) <= self.size and emptyCase <= self.size:
+        if 0 <= (emptyCase + l_size) <= self.size and emptyCase <= l_size:
             self.solutions.append(self.initialState[emptyCase + l_size])
 
 
