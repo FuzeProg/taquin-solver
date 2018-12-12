@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # _*_ coding: utf8 _*_
 #
-# taquin.py: display the game
-# Sources :
-#           Initial code without AI : https://www.ilemaths.net/sujet-taquin-en-python-771297.html
+# taquin.py: initial game
 #
 
 __author__ = ["Anthony MARECHAL", "Ombeline MOZDZIERZ"]
@@ -14,65 +12,79 @@ __maintainer__ = ["Anthony MARECHAL", "Ombeline MOZDZIERZ"]
 __email__ = ["anthony.marechal@etu.uphf.fr", "ombeline.mozdzierz@etu.uphf.fr"]
 __status__ = "In product"
 
-def display(l_case):
-    print("   --- --- ---")
-    print("  |", l_case[0], "|", l_case[1], "|", l_case[2], "|")
-    print("   --- --- ---")
-    print("  |", l_case[3], "|", l_case[4], "|", l_case[5], "|")
-    print("   --- --- ---")
-    print("  |", l_case[6], "|", l_case[7], "|", l_case[8], "|")
-    print("   --- --- ---")
-    print(" ")
+import random
+
+class Taquin:
+
+    def __init__(self, state, size):
+        self.state = state
+        self.taquin = []
+
+        if state == 'unsolved':
+            i = 0
+            while i < size:
+                case = random.randrange(0, size)
+                if case not in self.taquin:
+                    self.taquin.append(case)
+                    i = i+1
+
+        elif state == 'solved':
+            i = 0
+            while i < size:
+                self.taquin.append(i)
+                i = i+1
+
+    def taquin(self):
+        return self.taquin
+
+    def __len__(self):
+        return len(self.taquin)
+
+    def index(self, index):
+        return self.taquin.index(0)
+    '''
+    Display the grid
+    :return nothing
+    '''
+    def display(self):
+        print("   --- --- ---")
+        print("  |", self.taquin[0], "|", self.taquin[1], "|", self.taquin[2], "|")
+        print("   --- --- ---")
+        print("  |", self.taquin[3], "|", self.taquin[4], "|", self.taquin[5], "|")
+        print("   --- --- ---")
+        print("  |", self.taquin[6], "|", self.taquin[7], "|", self.taquin[8], "|")
+        print("   --- --- ---")
+        print(" ")
+
+    '''
+    
+    '''
+    def switch(self, case_zero, case_numero):
+
+        if (case_zero == 0 and case_numero == 1) or (case_zero == 1 and case_numero == 0):
+            self.taquin[0], self.taquin[1] = self.taquin[1], self.taquin[0]
+        elif (case_zero == 1 and case_numero == 2) or (case_zero == 2 and case_numero == 1):
+            self.taquin[1], self.taquin[2] = self.taquin[2], self.taquin[1]
+        elif (case_zero == 3 and case_numero == 4) or (case_zero == 4 and case_numero == 3):
+            self.taquin[3], self.taquin[4] = self.taquin[4], self.taquin[3]
+        elif (case_zero == 4 and case_numero == 5) or (case_zero == 5 and case_numero == 4):
+            self.taquin[4], self.taquin[5] = self.taquin[5], self.taquin[4]
+        elif (case_zero == 6 and case_numero == 7) or (case_zero == 7 and case_numero == 6):
+            self.taquin[6], self.taquin[7] = self.taquin[7], self.taquin[6]
+        elif (case_zero == 7 and case_numero == 8) or (case_zero == 8 and case_numero == 7):
+            self.taquin[7], self.taquin[8] = self.taquin[8], self.taquin[7]
+
+        elif (case_zero == 0 and case_numero == 3) or (case_zero == 3 and case_numero == 0):
+            self.taquin[0], self.taquin[3] = self.taquin[3], self.taquin[0]
+        elif (case_zero == 3 and case_numero == 6) or (case_zero == 6 and case_numero == 3):
+            self.taquin[3], self.taquin[6] = self.taquin[6], self.taquin[3]
+        elif (case_zero == 1 and case_numero == 4) or (case_zero == 4 and case_numero == 1):
+            self.taquin[1], self.taquin[4] = self.taquin[4], self.taquin[1]
+        elif (case_zero == 4 and case_numero == 7) or (case_zero == 7 and case_numero == 4):
+            self.taquin[4], self.taquin[7] = self.taquin[7], self.taquin[4]
+        elif (case_zero == 2 and case_numero == 5) or (case_zero == 5 and case_numero == 2):
+            self.taquin[2], self.taquin[5] = self.taquin[5], self.taquin[2]
+        elif (case_zero == 5 and case_numero == 8) or (case_zero == 8 and case_numero == 5):
+            self.taquin[5], self.taquin[8] = self.taquin[8], self.taquin[5]
 
 
-def switch(case_zero, case_numero, l_case):
-
-    # echanges horizontaux
-    if (case_zero == 0 and case_numero == 1) or (case_zero == 1 and case_numero == 0):
-
-        l_case[0], l_case[1] = l_case[1], l_case[0]
-
-    elif (case_zero == 1 and case_numero == 2) or (case_zero == 2 and case_numero == 1):
-
-        l_case[1], l_case[2] = l_case[2], l_case[1]
-
-    elif (case_zero == 3 and case_numero == 4) or (case_zero == 4 and case_numero == 3):
-
-        l_case[3], l_case[4] = l_case[4], l_case[3]
-
-    elif (case_zero == 4 and case_numero == 5) or (case_zero == 5 and case_numero == 4):
-
-        l_case[4], l_case[5] = l_case[5], l_case[4]
-
-    elif (case_zero == 6 and case_numero == 7) or (case_zero == 7 and case_numero == 6):
-
-        l_case[6], l_case[7] = l_case[7], l_case[6]
-
-    elif (case_zero == 7 and case_numero == 8) or (case_zero == 8 and case_numero == 7):
-
-        l_case[7], l_case[8] = l_case[8], l_case[7]
-
-    # echanges verticaux
-    elif (case_zero == 0 and case_numero == 3) or (case_zero == 3 and case_numero == 0):
-
-        l_case[0], l_case[3] = l_case[3], l_case[0]
-
-    elif (case_zero == 3 and case_numero == 6) or (case_zero == 6 and case_numero == 3):
-
-        l_case[3], l_case[6] = l_case[6], l_case[3]
-
-    elif (case_zero == 1 and case_numero == 4) or (case_zero == 4 and case_numero == 1):
-
-        l_case[1], l_case[4] = l_case[4], l_case[1]
-
-    elif (case_zero == 4 and case_numero == 7) or (case_zero == 7 and case_numero == 4):
-
-        l_case[4], l_case[7] = l_case[7], l_case[4]
-
-    elif (case_zero == 2 and case_numero == 5) or (case_zero == 5 and case_numero == 2):
-
-        l_case[2], l_case[5] = l_case[5], l_case[2]
-
-    elif (case_zero == 5 and case_numero == 8) or (case_zero == 8 and case_numero == 5):
-
-        l_case[5], l_case[8] = l_case[8], l_case[5]

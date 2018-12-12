@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # _*_ coding: utf8 _*_
 #
-# Foobar.py: Description of what foobar does.
+# solver.py: class for the solver of taquin game.
 #
 
 __author__ = ["Anthony MARECHAL", "Ombeline MOZDZIERZ"]
@@ -13,39 +13,39 @@ __email__ = ["anthony.marechal@etu.uphf.fr", "ombeline.mozdzierz@etu.uphf.fr"]
 __status__ = "In product"
 
 from math import sqrt
+from taquin import Taquin
 
 
-def find_solutions(l_case):
-    
-    case_zero = l_case.index(0)
-    list_size = len(l_case)
-    line_size = int(sqrt(len(l_case)))
-    list_num = []
+class Solver:
 
-    if 0 <= (case_zero - 1) <= list_size and case_zero % line_size:
-        list_num.append(l_case[case_zero - 1])
-    if 0 <= (case_zero + 1) <= list_size and case_zero % line_size != line_size - 1:
-        list_num.append(l_case[case_zero + 1])
-    if 0 <= (case_zero - line_size) <= list_size and case_zero >= line_size:
-        list_num.append(l_case[case_zero - line_size])
-    if 0 <= (case_zero + line_size) <= list_size and case_zero <= list_size:
-        list_num.append(l_case[case_zero + line_size])
+    def __init__(self, taquin):
+        self.openList = []
+        self.closedList = []
+        self.solutions = []
 
-    return list_num
+        self.initialState = taquin
+        self.emptyCase = taquin.index(0)
+        self.size = len(taquin)
+        
+    '''
+    Find solutions for any size of grid
+    :return list of solutions possibles around the empty case
+    '''
+    def find_solutions(self):
+        l_size = int(sqrt(self.size))
+
+        if 0 <= (self.emptyCase - 1) <= self.size and self.emptyCase % l_size:
+            self.solutions.append(self.initialState[self.emptyCase - 1])
+        if 0 <= (self.emptyCase + 1) <= self.size and self.emptyCase % l_size != l_size - 1:
+            self.solutions.append(self.initialState[self.emptyCase + 1])
+        if 0 <= (self.emptyCase - l_size) <= self.size and self.emptyCase >= l_size:
+            self.solutions.append(self.initialState[self.emptyCase - l_size])
+        if 0 <= (self.emptyCase + l_size) <= self.size and self.emptyCase <= self.size:
+            self.solutions.append(self.initialState[self.emptyCase + l_size])
 
 
-def check_statment(case, list):
-
-    for i in range(0, len(list)):
-        if list[i] == case:
-            return True
-    return False
-
-
-def solver(l_case):
-    copy_case = l_case
-    print("Wait untill solver is running ...")
-    while len(copy_case) > 0:
-        node = copy_case.pop(0)
-        print(node)
-
+    def check_statment(self, case, list):
+        for i in range(0, len(list)):
+            if list[i] == case:
+                return True
+        return False
