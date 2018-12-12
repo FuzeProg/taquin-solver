@@ -34,14 +34,15 @@ class Taquin:
                 self.taquin.append(i)
                 i = i+1
 
-    def taquin(self):
-        return self.taquin
-
     def __len__(self):
         return len(self.taquin)
 
     def index(self, index):
-        return self.taquin.index(0)
+        return self.taquin.index(index)
+
+    def __getitem__(self, item):
+        return self.taquin[item]
+
     '''
     Display the grid
     :return nothing

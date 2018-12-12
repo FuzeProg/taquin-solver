@@ -25,7 +25,7 @@ solutions = s(unsolved)
 while (True):
     unsolved.display()
     solutions.find_solutions()
-    print("Liste des solutions disponibles : ", print(solutions.solutions))
+    print("Liste des solutions disponibles : ", solutions.solutions)
     numero = int(input("Entrez une des solutions disponibles : "))
 
     if solutions.check_statment(numero, solutions):
