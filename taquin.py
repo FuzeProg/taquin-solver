@@ -14,9 +14,6 @@ __maintainer__ = ["Anthony MARECHAL", "Ombeline MOZDZIERZ"]
 __email__ = ["anthony.marechal@etu.uphf.fr", "ombeline.mozdzierz@etu.uphf.fr"]
 __status__ = "In product"
 
-from math import sqrt
-
-
 def display(l_case):
     print("   --- --- ---")
     print("  |", l_case[0], "|", l_case[1], "|", l_case[2], "|")

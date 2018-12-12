@@ -40,3 +40,12 @@ def check_statment(case, list):
         if list[i] == case:
             return True
     return False
+
+
+def solver(l_case):
+    copy_case = l_case
+    print("Wait untill solver is running ...")
+    while len(copy_case) > 0:
+        node = copy_case.pop(0)
+        print(node)
+

@@ -46,6 +46,7 @@ while (True):
         case_zero = unsolved.index(0)
         case_numero = unsolved.index(numero)
         switch(case_zero, case_numero, unsolved)
+        solver(unsolved)
         print("La case a bien été déplacée.")
         input("Press any key to continue ...")
     else:
