@@ -24,28 +24,32 @@ class Solver:
         self.solutions = []
 
         self.initialState = taquin
-        self.emptyCase = taquin.index(0)
         self.size = len(taquin)
         
     '''
     Find solutions for any size of grid
     :return list of solutions possibles around the empty case
     '''
-    def find_solutions(self):
+    def find_solutions(self, taquin):
         l_size = int(sqrt(self.size))
+        self.solutions.clear()
+        emptyCase = taquin.index(0)
 
-        if 0 <= (self.emptyCase - 1) <= self.size and self.emptyCase % l_size:
-            self.solutions.append(self.initialState[self.emptyCase - 1])
-        if 0 <= (self.emptyCase + 1) <= self.size and self.emptyCase % l_size != l_size - 1:
-            self.solutions.append(self.initialState[self.emptyCase + 1])
-        if 0 <= (self.emptyCase - l_size) <= self.size and self.emptyCase >= l_size:
-            self.solutions.append(self.initialState[self.emptyCase - l_size])
-        if 0 <= (self.emptyCase + l_size) <= self.size and self.emptyCase <= self.size:
-            self.solutions.append(self.initialState[self.emptyCase + l_size])
+        if 0 <= (emptyCase - 1) <= self.size and emptyCase % l_size:
+            self.solutions.append(self.initialState[emptyCase - 1])
+        if 0 <= (emptyCase + 1) <= self.size and emptyCase % l_size != l_size - 1:
+            self.solutions.append(self.initialState[emptyCase + 1])
+        if 0 <= (emptyCase - l_size) <= self.size and emptyCase >= l_size:
+            self.solutions.append(self.initialState[emptyCase - l_size])
+        if 0 <= (emptyCase + l_size) <= self.size and emptyCase <= self.size:
+            self.solutions.append(self.initialState[emptyCase + l_size])
 
 
-    def check_statment(self, case, list):
-        for i in range(0, len(list)):
-            if list[i] == case:
-                return True
+    '''
+    Check if case is in list
+    '''
+    def check_statment(self, case):
+        if case in self.solutions:
+            return True
         return False
+

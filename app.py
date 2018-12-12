@@ -24,11 +24,11 @@ solutions = s(unsolved)
 
 while (True):
     unsolved.display()
-    solutions.find_solutions()
+    solutions.find_solutions(unsolved)
     print("Liste des solutions disponibles : ", solutions.solutions)
     numero = int(input("Entrez une des solutions disponibles : "))
 
-    if solutions.check_statment(numero, solutions):
+    if solutions.check_statment(numero):
         case_zero = unsolved.index(0)
         case_numero = unsolved.index(numero)
         unsolved.switch(case_zero, case_numero)
