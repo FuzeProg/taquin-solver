@@ -13,6 +13,8 @@ __email__ = ["anthony.marechal@etu.uphf.fr", "ombeline.mozdzierz@etu.uphf.fr"]
 __status__ = "In product"
 
 import random
+from math import sqrt
+from design import Design
 
 class Taquin:
 
@@ -47,15 +49,15 @@ class Taquin:
     Display the grid
     :return nothing
     '''
+
     def display(self):
-        print("   --- --- ---")
-        print("  |", self.taquin[0], "|", self.taquin[1], "|", self.taquin[2], "|")
-        print("   --- --- ---")
-        print("  |", self.taquin[3], "|", self.taquin[4], "|", self.taquin[5], "|")
-        print("   --- --- ---")
-        print("  |", self.taquin[6], "|", self.taquin[7], "|", self.taquin[8], "|")
-        print("   --- --- ---")
-        print(" ")
+        ligne_size = int(sqrt(len(self.taquin)))
+        d = Design(ligne_size, self.taquin)
+
+        d.ligne()
+        for i in range(0, ligne_size):
+            d.bloc()
+            d.ligne()
 
     '''
     
