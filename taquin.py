@@ -36,16 +36,6 @@ class Taquin:
                 self.taquin.append(i)
                 i = i+1
 
-    def __len__(self):
-        return len(self.taquin)
-
-    def index(self, index):
-        return self.taquin.index(index)
-
-    def __getitem__(self, item):
-        print(item)
-        return self.taquin[item]
-
     '''
     Display the grid
     :return nothing
@@ -62,34 +52,35 @@ class Taquin:
             d.ligne()
 
     '''
-    
+    Switch the empty case with an other case
+    :return nothing
     '''
-    def switch(self, case_zero, case_numero):
+    def switch(self, emptyCase, case):
 
-        if (case_zero == 0 and case_numero == 1) or (case_zero == 1 and case_numero == 0):
+        if (emptyCase == 0 and case == 1) or (emptyCase == 1 and case == 0):
             self.taquin[0], self.taquin[1] = self.taquin[1], self.taquin[0]
-        elif (case_zero == 1 and case_numero == 2) or (case_zero == 2 and case_numero == 1):
+        elif (emptyCase == 1 and case == 2) or (emptyCase == 2 and case == 1):
             self.taquin[1], self.taquin[2] = self.taquin[2], self.taquin[1]
-        elif (case_zero == 3 and case_numero == 4) or (case_zero == 4 and case_numero == 3):
+        elif (emptyCase == 3 and case == 4) or (emptyCase == 4 and case == 3):
             self.taquin[3], self.taquin[4] = self.taquin[4], self.taquin[3]
-        elif (case_zero == 4 and case_numero == 5) or (case_zero == 5 and case_numero == 4):
+        elif (emptyCase == 4 and case == 5) or (emptyCase == 5 and case == 4):
             self.taquin[4], self.taquin[5] = self.taquin[5], self.taquin[4]
-        elif (case_zero == 6 and case_numero == 7) or (case_zero == 7 and case_numero == 6):
+        elif (emptyCase == 6 and case == 7) or (emptyCase == 7 and case == 6):
             self.taquin[6], self.taquin[7] = self.taquin[7], self.taquin[6]
-        elif (case_zero == 7 and case_numero == 8) or (case_zero == 8 and case_numero == 7):
+        elif (emptyCase == 7 and case == 8) or (emptyCase == 8 and case == 7):
             self.taquin[7], self.taquin[8] = self.taquin[8], self.taquin[7]
 
-        elif (case_zero == 0 and case_numero == 3) or (case_zero == 3 and case_numero == 0):
+        elif (emptyCase == 0 and case == 3) or (emptyCase == 3 and case == 0):
             self.taquin[0], self.taquin[3] = self.taquin[3], self.taquin[0]
-        elif (case_zero == 3 and case_numero == 6) or (case_zero == 6 and case_numero == 3):
+        elif (emptyCase == 3 and case == 6) or (emptyCase == 6 and case == 3):
             self.taquin[3], self.taquin[6] = self.taquin[6], self.taquin[3]
-        elif (case_zero == 1 and case_numero == 4) or (case_zero == 4 and case_numero == 1):
+        elif (emptyCase == 1 and case == 4) or (emptyCase == 4 and case == 1):
             self.taquin[1], self.taquin[4] = self.taquin[4], self.taquin[1]
-        elif (case_zero == 4 and case_numero == 7) or (case_zero == 7 and case_numero == 4):
+        elif (emptyCase == 4 and case == 7) or (emptyCase == 7 and case == 4):
             self.taquin[4], self.taquin[7] = self.taquin[7], self.taquin[4]
-        elif (case_zero == 2 and case_numero == 5) or (case_zero == 5 and case_numero == 2):
+        elif (emptyCase == 2 and case == 5) or (emptyCase == 5 and case == 2):
             self.taquin[2], self.taquin[5] = self.taquin[5], self.taquin[2]
-        elif (case_zero == 5 and case_numero == 8) or (case_zero == 8 and case_numero == 5):
+        elif (emptyCase == 5 and case == 8) or (emptyCase == 8 and case == 5):
             self.taquin[5], self.taquin[8] = self.taquin[8], self.taquin[5]
 
 

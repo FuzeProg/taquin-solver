@@ -21,33 +21,35 @@ class Solver:
         self.closedList = []
         self.solutions = []
 
-        self.initialState = taquin
-        self.size = len(taquin)
+        self.initialState = taquin.taquin
+        self.emptyCase = taquin.taquin.index(0)
+        self.size = len(taquin.taquin)
         
     '''
     Find solutions for any size of grid
     :return list of solutions possibles around the empty case
     '''
-    def find_solutions(self, taquin):
+    def find_solutions(self):
         l_size = int(sqrt(self.size))
         self.solutions.clear()
-        emptyCase = taquin.index(0)
 
-        if 0 <= (emptyCase - 1) <= self.size and emptyCase % l_size:
-            self.solutions.append(self.initialState[emptyCase - 1])
-        if 0 <= (emptyCase + 1) <= self.size and emptyCase % l_size != l_size - 1:
-            self.solutions.append(self.initialState[emptyCase + 1])
-        if 0 <= (emptyCase - l_size) <= self.size and emptyCase >= l_size:
-            self.solutions.append(self.initialState[emptyCase - l_size])
-        if 0 <= (emptyCase + l_size) <= self.size and emptyCase <= l_size:
-            self.solutions.append(self.initialState[emptyCase + l_size])
+        if 0 <= (self.emptyCase - 1) <= self.size and self.emptyCase % l_size:
+            self.solutions.append(self.initialState[self.emptyCase - 1])
+        if 0 <= (self.emptyCase + 1) <= self.size and self.emptyCase % l_size != l_size - 1:
+            self.solutions.append(self.initialState[self.emptyCase + 1])
+        if 0 <= (self.emptyCase - l_size) <= self.size and self.emptyCase >= l_size:
+            self.solutions.append(self.initialState[self.emptyCase - l_size])
+        if 0 <= (self.emptyCase + l_size) <= self.size and self.emptyCase <= l_size:
+            self.solutions.append(self.initialState[self.emptyCase + l_size])
 
 
     '''
-    Check if case is in list
+    Check if a number is in the solutions list
     '''
-    def check_statment(self, case):
-        if case in self.solutions:
+    def check_statment(self, number):
+        if number in self.solutions:
             return True
         return False
 
+    def resolve(self):
+        print('Solver is running...')

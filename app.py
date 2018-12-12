@@ -24,13 +24,13 @@ solutions = s(unsolved)
 
 while (True):
     unsolved.display()
-    solutions.find_solutions(unsolved)
+    solutions.find_solutions()
     print("Liste des solutions disponibles : ", solutions.solutions)
     numero = int(input("Entrez une des solutions disponibles : "))
 
     if solutions.check_statment(numero):
-        case_zero = unsolved.index(0)
-        case_numero = unsolved.index(numero)
+        case_zero = unsolved.taquin.index(0)
+        case_numero = unsolved.taquin.index(numero)
         unsolved.switch(case_zero, case_numero)
         print("La case a bien été déplacée.")
         input("Press any key to continue ...")
