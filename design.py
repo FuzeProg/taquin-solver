@@ -31,9 +31,9 @@ class Design:
                     if j == self.ligne_size - 1:
                         print("+", end='')
 
-    def bloc(self):
-        k = 0
+    def bloc(self, k):
         print("|", end='')
+
         for j in range(0, self.ligne_size):
             print("", self.taquin[k], end='')
             for l in range(0, (self.ligne_size - 1) - len(str(self.taquin[k]))):
@@ -43,3 +43,4 @@ class Design:
             else:
                 print("|", end='')
             k = k + 1
+        return k

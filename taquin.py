@@ -51,12 +51,13 @@ class Taquin:
     '''
 
     def display(self):
+        k = 0
         ligne_size = int(sqrt(len(self.taquin)))
         d = Design(ligne_size, self.taquin)
 
         d.ligne()
         for i in range(0, ligne_size):
-            d.bloc()
+            k = d.bloc(k)
             d.ligne()
 
     '''
