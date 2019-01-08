@@ -23,17 +23,16 @@ solved = t('solved', size)
 solutions = s(unsolved)
 
 while (True):
+    case_zero = unsolved.taquin.index(0)
+    solutions.set_emptyCase(case_zero)
     unsolved.display()
     solutions.find_solutions()
     print("Liste des solutions disponibles : ", solutions.solutions)
     numero = int(input("Entrez une des solutions disponibles : "))
 
     if solutions.check_statment(numero):
-        case_zero = unsolved.taquin.index(0)
         case_numero = unsolved.taquin.index(numero)
         unsolved.switch(case_zero, case_numero)
         print("La case a bien été déplacée.")
-        input("Press any key to continue ...")
     else:
         print("Saisie incorrecte")
-        input("Press any key to continue ...")

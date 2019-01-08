@@ -42,6 +42,11 @@ class Solver:
         if 0 <= (self.emptyCase + l_size) <= self.size and self.emptyCase <= l_size:
             self.solutions.append(self.initialState[self.emptyCase + l_size])
 
+    '''
+    Update the emptyCase during the game
+    '''
+    def set_emptyCase(self, emptyCase):
+        self.emptyCase = emptyCase
 
     '''
     Check if a number is in the solutions list
