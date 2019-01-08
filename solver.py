@@ -39,7 +39,7 @@ class Solver:
             self.solutions.append(self.initialState[self.emptyCase + 1])
         if 0 <= (self.emptyCase - l_size) <= self.size and self.emptyCase >= l_size:
             self.solutions.append(self.initialState[self.emptyCase - l_size])
-        if 0 <= (self.emptyCase + l_size) <= self.size and self.emptyCase <= l_size:
+        if 0 <= (self.emptyCase + l_size) <= self.size and self.emptyCase <= self.size-4:
             self.solutions.append(self.initialState[self.emptyCase + l_size])
 
     '''
