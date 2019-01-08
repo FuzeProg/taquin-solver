@@ -22,14 +22,13 @@ class Solver:
         self.solutions = []
 
         self.initialState = taquin.taquin
-        self.emptyCase = taquin.taquin.index(0)
         self.size = len(taquin.taquin)
         
     '''
     Find solutions for any size of grid
     :return list of solutions possibles around the empty case
     '''
-    def find_solutions(self):
+    def find_solutions(self, emptyCase):
         l_size = int(sqrt(self.size))
         self.solutions.clear()
 
