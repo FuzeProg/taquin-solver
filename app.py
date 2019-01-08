@@ -22,7 +22,7 @@ unsolved = t('unsolved', size)
 solved = t('solved', size)
 solutions = s(unsolved)
 
-while (True):
+while (unsolved != solved):
     case_zero = unsolved.taquin.index(0)
     solutions.set_emptyCase(case_zero)
     unsolved.display()

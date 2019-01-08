@@ -43,8 +43,9 @@ class Solver:
             self.solutions.append(self.initialState[self.emptyCase + l_size])
 
     '''
-    Update the emptyCase during the game
-    '''
+        Update the emptyCase during the game
+        '''
+
     def set_emptyCase(self, emptyCase):
         self.emptyCase = emptyCase
 
