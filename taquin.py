@@ -82,5 +82,3 @@ class Taquin:
             self.taquin[2], self.taquin[5] = self.taquin[5], self.taquin[2]
         elif (emptyCase == 5 and case == 8) or (emptyCase == 8 and case == 5):
             self.taquin[5], self.taquin[8] = self.taquin[8], self.taquin[5]
-
-

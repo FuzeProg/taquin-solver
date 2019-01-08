@@ -22,14 +22,13 @@ class Solver:
         self.solutions = []
 
         self.initialState = taquin.taquin
-        self.emptyCase = taquin.taquin.index(0)
         self.size = len(taquin.taquin)
         
     '''
     Find solutions for any size of grid
     :return list of solutions possibles around the empty case
     '''
-    def find_solutions(self):
+    def find_solutions(self, emptyCase):
         l_size = int(sqrt(self.size))
         self.solutions.clear()
 
@@ -42,11 +41,6 @@ class Solver:
         if 0 <= (self.emptyCase + l_size) <= self.size and self.emptyCase <= self.size-4:
             self.solutions.append(self.initialState[self.emptyCase + l_size])
 
-    '''
-    Update the emptyCase during the game
-    '''
-    def set_emptyCase(self, emptyCase):
-        self.emptyCase = emptyCase
 
     '''
     Check if a number is in the solutions list

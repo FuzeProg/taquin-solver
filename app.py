@@ -22,11 +22,10 @@ unsolved = t('unsolved', size)
 solved = t('solved', size)
 solutions = s(unsolved)
 
-while (True):
+while (unsolved != solved):
     case_zero = unsolved.taquin.index(0)
-    solutions.set_emptyCase(case_zero)
     unsolved.display()
-    solutions.find_solutions()
+    solutions.find_solutions(case_zero)
     print("Liste des solutions disponibles : ", solutions.solutions)
     numero = int(input("Entrez une des solutions disponibles : "))
 
