@@ -15,11 +15,11 @@ __status__ = "In product"
 from taquin import Taquin as t
 from solver import Solver as s
 
-F, G, H, GAME, FATHER = 0, 1, 2, 3, 4
+GAME = 3
 
 size = 3
 size = size*size
-taquin = t(size)
+taquin = t(size, GAME)
 solutions = s(taquin, GAME)
 
 while (taquin.taquinUnsolved != taquin.taquinSolved):
