@@ -15,24 +15,25 @@ __status__ = "In product"
 from taquin import Taquin as t
 from solver import Solver as s
 
+F, G, H, GAME, FATHER = 0, 1, 2, 3, 4
 
 size = 3
 size = size*size
-unsolved = t('unsolved', size)
-solved = t('solved', size)
-solutions = s(unsolved)
+taquin = t(size)
+solutions = s(taquin, GAME)
 
-while (unsolved != solved):
-    case_zero = unsolved.taquin.index(0)
+while (taquin.taquinUnsolved != taquin.taquinSolved):
+    case_zero = taquin.taquinUnsolved.index(0)
     solutions.set_emptyCase(case_zero)
-    unsolved.display()
+    taquin.display()
+    #taquin.displaySolved()
     solutions.find_solutions()
     print("Liste des solutions disponibles : ", solutions.solutions)
     numero = int(input("Entrez une des solutions disponibles : "))
 
     if solutions.check_statment(numero):
-        case_numero = unsolved.taquin.index(numero)
-        unsolved.switch(case_zero, case_numero)
+        case_numero = taquin.taquinUnsolved.index(numero)
+        taquin.switch(case_zero, case_numero)
         print("La case a bien été déplacée.")
     else:
         print("Saisie incorrecte")

@@ -16,14 +16,18 @@ from math import sqrt
 
 class Solver:
 
-    def __init__(self, taquin):
+    def __init__(self, taquin, GAME):
         self.openList = []
         self.closedList = []
         self.solutions = []
 
-        self.initialState = taquin.taquin
-        self.emptyCase = taquin.taquin.index(0)
-        self.size = len(taquin.taquin)
+        self.initialState = taquin.taquinUnsolved
+        self.emptyCase = taquin.taquinUnsolved.index(0)
+        self.size = taquin.size
+
+        self.game = GAME
+
+        self.openList.append([0, 0, 0, taquin.taquinUnsolved, None])
         
     '''
     Find solutions for any size of grid
@@ -44,8 +48,7 @@ class Solver:
 
     '''
         Update the emptyCase during the game
-        '''
-
+    '''
     def set_emptyCase(self, emptyCase):
         self.emptyCase = emptyCase
 
@@ -59,3 +62,6 @@ class Solver:
 
     def resolve(self):
         print('Solver is running...')
+        while len(self.openList) > 0 :
+            node = self.openList.pop(0)
+            taquin = node[self.game]
