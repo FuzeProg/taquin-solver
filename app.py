@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # _*_ coding: utf8 _*_
 #
-# app.py: play the game
+# app.py: play the game played by your own
 #
 
 __author__ = ["Anthony MARECHAL", "Ombeline MOZDZIERZ"]
@@ -11,6 +11,7 @@ __version__ = "1.0.1"
 __maintainer__ = ["Anthony MARECHAL", "Ombeline MOZDZIERZ"]
 __email__ = ["anthony.marechal@etu.uphf.fr", "ombeline.mozdzierz@etu.uphf.fr"]
 __status__ = "In product"
+
 
 from taquin import Taquin as t
 from solver import Solver as s

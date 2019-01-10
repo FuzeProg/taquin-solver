@@ -18,6 +18,14 @@ import copy
 class Solver:
     F, G, H = 0, 1, 2
 
+    '''
+    Constructor for the solver
+    
+    :param arg1: a game
+    :type: taquin's type
+    :param arg2: lambda value used for the AI solver
+    :type: integer
+    '''
     def __init__(self, taquin, GAME):
         self.openList = []
         self.closedList = []
@@ -34,8 +42,10 @@ class Solver:
         self.openList.append([0, 0, 0, taquin.taquinUnsolved, None])
         
     '''
-    Find solutions for any size of grid (without the solver)
-    :return list of solutions possibles around the empty case
+    Find the possibilities for any size of grid (without the solver)
+    
+    :return: list of solutions possibles around the empty case
+    :type: list
     '''
     def find_solutions(self):
         l_size = int(sqrt(self.size))
@@ -52,18 +62,30 @@ class Solver:
 
     '''
     Update the emptyCase during the game
+    
+    :param arg1: index of the empty case
+    :type: integer
     '''
     def set_emptyCase(self, emptyCase):
         self.emptyCase = emptyCase
 
     '''
     Check if a number is in the solutions list
+    
+    :param arg1: a number of the solutions list
+    :type: integer
+    
+    :return: true if the number is in the solutions list, else false
+    :type: boolean
     '''
     def check_statment(self, number):
         if number in self.solutions:
             return True
         return False
 
+    '''
+    A* algorithm /!\ does not work, infinite loop
+    '''
     def resolve(self):
         print('Solver is running...')
 
@@ -112,7 +134,11 @@ class Solver:
 
     '''
     Define the heuristic for the solver
-    :return summ of invalid cases
+    
+    :param arg1: a node (here, a board of the game)
+    :type: taquin's type
+    :return: summ of invalid cases
+    :type: integer
     '''
     def heuristic(self, taquin):
         i = 0
@@ -125,7 +151,9 @@ class Solver:
 
     '''
     Give the index in the open list
-    :return i, index asked in the open list
+    
+    :return: i, index asked in the open list, if not found, -1
+    :type: integer
     '''
     def openList_index(self, taquin):
         for i in range(0, len(self.openList)):

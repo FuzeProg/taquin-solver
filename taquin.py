@@ -20,6 +20,14 @@ from solver import Solver
 class Taquin:
     FATHER = 4
 
+    '''
+    Constructor for the game
+    
+    :param arg1: size of the game (example for a 3x3 taquin, the param will be 3)
+    :type: integer
+    :param arg2: lambda value for the AI solver
+    :type: integer
+    '''
     def __init__(self, size, GAME):
         self.taquinUnsolved = []
         self.taquinSolved = []
@@ -38,7 +46,6 @@ class Taquin:
 
     '''
     Display the unsolved grid
-    :return nothing
     '''
     def display(self):
         k = 0
@@ -51,7 +58,6 @@ class Taquin:
 
     '''
     Display the solved grid
-    :return nothing
     '''
     def displaySolved(self):
         k = 0
@@ -67,7 +73,12 @@ class Taquin:
 
     '''
     Switch the empty case with an other case
-    :return nothing
+    The check is in the Solver class
+    
+    :param arg1: index of the empty case (respresented by the 0 case)
+    :type: integer
+    :param arg2: index of an other case
+    :type: integer
     '''
     def switch(self, emptyCase, case):
         if (case == emptyCase + 1) or (case == emptyCase - 1):
@@ -75,6 +86,9 @@ class Taquin:
         elif (case == emptyCase + self.line_size) or (case == emptyCase - self.line_size):
             self.taquinUnsolved[case], self.taquinUnsolved[emptyCase] = self.taquinUnsolved[emptyCase], self.taquinUnsolved[case]
 
+    '''
+    The AI solver, called from the Solver class
+    '''
     def resolve(self):
         solver = Solver(self, self.GAME)
         solution = solver.resolve()

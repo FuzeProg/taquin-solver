@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # _*_ coding: utf8 _*_
 #
-# app2.py: play the game
+# app2.py: play the game with auto solver
 #
 
 __author__ = ["Anthony MARECHAL", "Ombeline MOZDZIERZ"]
