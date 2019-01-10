@@ -77,7 +77,7 @@ class Solver:
             for case in range(0, self.size):
                 print(taquin)
                 print("case = ", case)
-                if (case == self.emptyCase + 1) or (case == self.emptyCase - 1):
+                if case > 0 and taquin[case] == self.emptyCase:
                     new_node = copy.deepcopy(taquin)
                     new_node[case], new_node[self.emptyCase] = new_node[self.emptyCase], new_node[case]
                     g = node[self.G]+1
@@ -91,7 +91,8 @@ class Solver:
                             self.openList.append([g+h, g, h, new_node, node])
                         elif g+h < self.openList[i][self.F] :
                             self.openList[i] = [g+h, h, new_node, node]
-                if (case == self.emptyCase + self.l_size) or (case == self.emptyCase - self.l_size):
+
+                if case < self.size - 1 and taquin[case] == self.emptyCase:
                     new_node = copy.deepcopy(taquin)
                     new_node[case], new_node[self.emptyCase] = new_node[self.emptyCase], new_node[case]
                     print("if 2 ", new_node)
@@ -99,6 +100,8 @@ class Solver:
                     h = self.heuristic(new_node)
                     if not new_node in self.closedList:
                         i = self.openList_index(new_node)
+                        print("i =", i)
+                        print("g + h ", g+h)
                         if i == -1:
                             self.openList.append([g + h, g, h, new_node, node])
                         elif g+h < self.openList[i][self.F] :
